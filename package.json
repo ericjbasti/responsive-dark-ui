@@ -1,0 +1,11 @@
+{
+  "name": "responsive-dark-ui",
+  "theme": "ui",
+  "version": "0.0.0",
+  "description": "A responsive ui theme for Atom.",
+  "license": "MIT",
+  "repository": "https://github.com/ericjbasti/responsive-dark-ui",
+  "engines": {
+    "atom": ">0.40.0"
+  }
+}

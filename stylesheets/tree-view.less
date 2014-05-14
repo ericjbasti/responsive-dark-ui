@@ -1,0 +1,61 @@
+@import "ui-variables";
+
+.tree-view {
+  background: @tree-view-background-color;
+  padding-top: .5em;
+  .selected:before {
+  	background: #333;
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255,.1), rgba(0,0,0,0));
+    height: 2.0em;
+    margin-top: 0em;
+  }
+}
+.list-group li:not(.list-nested-item), .list-tree li:not(.list-nested-item), .list-group li.list-nested-item > .list-item, .list-tree li.list-nested-item > .list-item {
+  line-height: 2.2em;
+  text-wrap: none;
+  white-space: nowrap;
+}
+.list-tree.has-collapsable-children .list-nested-item > .list-tree > li, .list-tree.has-collapsable-children .list-nested-item > .list-group > li {
+  padding-left: 1em;
+}
+
+.focusable-panel {
+  opacity: 1;
+  background: #222;
+  box-shadow: inset -3px 0 0 rgba(0,0,0, .05);
+
+  &:focus {
+    background: #282828;
+
+    .selected:before {
+
+      background: @background-color-selected;
+    }
+
+    .selected > .name,
+    .selected > .name:before,
+    .selected > .list-item > .name,
+    .selected > .list-item > .name:before {
+      color: #fff !important;
+    }
+  }
+}
+
+
+
+// Responsive Code
+
+.tree-view{
+    font-size: .7em;
+}
+
+@media screen and (min-width: 80em){
+    .tree-view{
+        font-size: .8em;
+    }
+}
+@media screen and (min-width: 100em){
+    .tree-view{
+        font-size: .9em;
+    }
+}

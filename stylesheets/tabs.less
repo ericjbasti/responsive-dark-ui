@@ -1,0 +1,124 @@
+@import "ui-variables";
+@tab-radius: 2px;
+@modified-icon-width: 8px;
+@tab-top-padding: .2em;
+@tab-bottom-border-height: 8px;
+@tab-border: 1px solid @tab-border-color;
+@tab-bar-bottom-border-color: #111;
+
+@tab-base-color: #000;
+@tab-height: 2.5em;
+@tab-line-height: 2.1em;
+@active-tab-color: #333;
+
+@modified-color: #29f;
+.tool-panel {
+  background: @active-tab-color;
+}
+
+.tab-bar {
+  padding: 0;
+  box-sizing: border-box;
+  border-bottom: .3em solid @active-tab-color;
+  .tab {
+    height: @tab-height;
+    line-height: @tab-line-height;
+    color: rgba(255,255,255,.3);
+    border: none;
+    &:first-child {
+      padding-left: 1em;
+    }
+
+    .close-icon {
+      z-index: 3;
+      top: .2em;
+      right: .5em;
+      &:hover {
+        color: inherit;
+      }
+    }
+    &.modified:not(:hover) .close-icon {
+      top: .9em;
+      right: .9em;
+      width: @modified-icon-width;
+      height: @modified-icon-width;
+      background: @modified-color;
+      border-color: @modified-color;
+      opacity: .5;
+    }
+
+    &.modified:hover .close-icon:hover {
+      color: modified-color;
+    }
+
+    .title{
+      position: relative;
+      top: .2em
+    }
+  }
+
+
+  .tab.active {
+    z-index: 10;
+    color: rgba(255,255,255,.8);
+    text-shadow: 0 1px 1px rgba(0,0,0,.5);
+    border: none;
+    .title{
+      position: relative;
+    }
+
+    .close-icon {
+      color: rgba(255,255,255,.6);
+      right: 0.5em;
+    }
+    &.modified:not(:hover) .close-icon {
+      opacity: 1;
+    }
+    &, &:before {
+      background: @active-tab-color;
+      background-image: -webkit-linear-gradient(top, rgba(255,255,255,.1), rgba(0,0,0,0));
+      // background-image: -webkit-linear-gradient(top, rgba(255,255,255,.1), rgba(0,0,0,0));
+    }
+
+  }
+.tab-bar .tab.modified .close-icon{
+  color: red;
+}
+  .tab:hover {
+    color: @text-color-highlight;
+  }
+
+  .tab.active:hover .close-icon {
+    color: @text-color;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+
+  .placeholder {
+    height: @tab-height + @tab-top-padding + @tab-bottom-border-height;
+    &:after {
+      top: @tab-height + @tab-top-padding + @tab-bottom-border-height;
+    }
+  }
+}
+
+
+
+// Responsive Code
+
+.tab-bar .tab{
+    font-size: .8em;
+}
+
+@media screen and (min-width: 50em){
+    .tab-bar .tab{
+        font-size: .9em;
+    }
+}
+@media screen and (min-width: 80em){
+    .tab-bar .tab{
+        font-size: 1em;
+    }
+}
